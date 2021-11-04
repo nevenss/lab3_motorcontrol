@@ -31,8 +31,10 @@ namespace Lab3_Encoder
             bytesToRead = serialPort1.BytesToRead;
             while (bytesToRead != 0)
             {
+                int frequency = 50;
                 encoder_count = serialPort1.ReadByte();
-                textBoxVelocityHz = 
+                double velocity = (encoder_count * (1 / frequency));
+                textBoxVelocityHz.Text = (velocity).ToString();
             }
         }
         private void button1_Click_1(object sender, EventArgs e)
@@ -135,14 +137,13 @@ namespace Lab3_Encoder
             objChart.AxisX.Maximum = 10;
             //temperature
             objChart.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            objChart.AxisY.Minimum = -50;
-            objChart.AxisY.Maximum = 50;
+            objChart.AxisY.Minimum = -20;
+            objChart.AxisY.Maximum = 20;
             //clear
             chartVelocity.Series.Clear();
             //random color
             Random random = new Random();
-            //loop rows to draw multi line chart c#
-            
+            //initial chart addition
             chartVelocity.Series.Add(v);
             chartVelocity.Series[v].Color = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
             chartVelocity.Series[v].Legend = "Legend1";
