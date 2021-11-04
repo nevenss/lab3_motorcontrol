@@ -1,7 +1,7 @@
 ﻿
 namespace Lab3StepperMotor
 {
-    partial class Form1
+    partial class Stepper
     {
         /// <summary>
         /// Required designer variable.

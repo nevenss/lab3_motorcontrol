@@ -8,30 +8,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Lab3StepperMotor
+namespace Lab3_Encoder
 {
-    public partial class Form1 : Form
+    public partial class Encoder : Form
     {
         int mode;
         int speed;
+        double time = 0;
+        string v = "Velocity";
 
-        public Form1()
+
+        public Encoder()
         {
             InitializeComponent();
         }
 
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            comboBoxCOMPorts.Items.Clear();
-            comboBoxCOMPorts.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
-            if (comboBoxCOMPorts.Items.Count == 0)
-                comboBoxCOMPorts.Text = "No COM ports!";
-            else
-                comboBoxCOMPorts.SelectedIndex = 0;
+            int newByte = 0;
+            int bytesToRead;
+            int encoder_count;
+            bytesToRead = serialPort1.BytesToRead;
+            while (bytesToRead != 0)
+            {
+                encoder_count = serialPort1.ReadByte();
+                textBoxVelocityHz = 
+            }
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -116,6 +118,50 @@ namespace Lab3StepperMotor
             buffer[3] = lower;
             buffer[4] = overload;
             serialPort1.Write(buffer, 0, 5);
+        }
+
+        private void Encoder_Load(object sender, EventArgs e)
+        {
+            comboBoxCOMPorts.Items.Clear();
+            comboBoxCOMPorts.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
+            if (comboBoxCOMPorts.Items.Count == 0)
+                comboBoxCOMPorts.Text = "No COM ports!";
+            else
+                comboBoxCOMPorts.SelectedIndex = 0;
+            var objChart = chartVelocity.ChartAreas[0];
+            objChart.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            //month 1-12
+            objChart.AxisX.Minimum = 0;
+            objChart.AxisX.Maximum = 10;
+            //temperature
+            objChart.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            objChart.AxisY.Minimum = -50;
+            objChart.AxisY.Maximum = 50;
+            //clear
+            chartVelocity.Series.Clear();
+            //random color
+            Random random = new Random();
+            //loop rows to draw multi line chart c#
+            
+            chartVelocity.Series.Add(v);
+            chartVelocity.Series[v].Color = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+            chartVelocity.Series[v].Legend = "Legend1";
+            chartVelocity.Series[v].ChartArea = "ChartArea1";
+            chartVelocity.Series[v].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            var objChart = chartVelocity.ChartAreas[0];
+            var vel = Convert.ToDouble(textBoxVelocityRPM);
+            time = time + 0.1;
+            if(time > 10)
+            {
+                objChart.AxisX.Minimum = time-10;
+                objChart.AxisX.Maximum = time;
+            }
+            //Add data every 0.1s?
+            chartVelocity.Series[v].Points.AddXY(time, vel);
         }
     }
 }

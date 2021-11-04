@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Lab3StepperMotor
+namespace Lab3_Encoder
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Lab3StepperMotor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Stepper());
+            Application.Run(new Encoder());
         }
     }
 }

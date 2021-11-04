@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{39FF7A2C-2CB5-4D5A-8727-A875AB321D46}</ProjectGuid>
+    <ProjectGuid>{020FCE08-6240-4B0E-B43C-8D9B0021F564}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Lab3StepperMotor</RootNamespace>
-    <AssemblyName>Lab3StepperMotor</AssemblyName>
+    <RootNamespace>Lab3_Encoder</RootNamespace>
+    <AssemblyName>Lab3_Encoder</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,16 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Stepper.cs">
+    <Compile Include="Encoder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stepper.Designer.cs">
-      <DependentUpon>Stepper.cs</DependentUpon>
+    <Compile Include="Encoder.Designer.cs">
+      <DependentUpon>Encoder.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Stepper.resx">
-      <DependentUpon>Stepper.cs</DependentUpon>
+    <EmbeddedResource Include="Encoder.resx">
+      <DependentUpon>Encoder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
