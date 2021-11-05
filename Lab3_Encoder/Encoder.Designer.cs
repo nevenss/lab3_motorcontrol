@@ -30,9 +30,9 @@ namespace Lab3_Encoder
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -123,6 +123,10 @@ namespace Lab3_Encoder
             this.trackBarSpeed.Value = 60000;
             this.trackBarSpeed.Scroll += new System.EventHandler(this.trackBarSpeed_Scroll);
             // 
+            // serialPort1
+            // 
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
             // textBoxPosition
             // 
             this.textBoxPosition.Location = new System.Drawing.Point(211, 162);
@@ -173,17 +177,17 @@ namespace Lab3_Encoder
             // 
             // chartVelocity
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartVelocity.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartVelocity.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chartVelocity.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartVelocity.Legends.Add(legend1);
             this.chartVelocity.Location = new System.Drawing.Point(11, 298);
             this.chartVelocity.Name = "chartVelocity";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartVelocity.Series.Add(series2);
-            this.chartVelocity.Size = new System.Drawing.Size(469, 300);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartVelocity.Series.Add(series1);
+            this.chartVelocity.Size = new System.Drawing.Size(909, 594);
             this.chartVelocity.TabIndex = 74;
             this.chartVelocity.Text = "chart1";
             // 
@@ -195,7 +199,7 @@ namespace Lab3_Encoder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 611);
+            this.ClientSize = new System.Drawing.Size(932, 904);
             this.Controls.Add(this.chartVelocity);
             this.Controls.Add(this.textBoxVelocityHz);
             this.Controls.Add(this.label6);

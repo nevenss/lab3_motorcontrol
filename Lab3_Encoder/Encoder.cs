@@ -12,11 +12,29 @@ namespace Lab3_Encoder
 {
     public partial class Encoder : Form
     {
-        int mode;
-        int speed;
-        double time = 0;
-        string v = "Velocity";
+        //INPUTS
+        double frequency = 50;
+        double ratio = 250; // 1/(4mm)
+        int counts_per_rev = 980;
 
+        //INTERMEDIATE PARAMETERS
+        Queue<Int32> dataQueue = new Queue<Int32>();
+        int direction = 0;
+        int state = 0;
+        int speed = 0;
+        int newByte = 0;
+        int bytesToRead;
+        double distance;
+        double position;
+        double velocityRPM;
+        double velocityHz;
+        int encoder_count;
+        double old_distance = 0;
+        int mode;
+        double time = 0;
+        
+        string v = "Velocity";
+        string p = "Position";
 
         public Encoder()
         {
@@ -25,17 +43,25 @@ namespace Lab3_Encoder
 
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            int newByte = 0;
-            int bytesToRead;
-            int encoder_count;
             bytesToRead = serialPort1.BytesToRead;
             while (bytesToRead != 0)
             {
-                int frequency = 50;
-                encoder_count = serialPort1.ReadByte();
-                double velocity = (encoder_count * (1 / frequency));
-                textBoxVelocityHz.Text = (velocity).ToString();
+                newByte = serialPort1.ReadByte();
+                if (newByte == 255) state = 1;  //update to next state
+                else if (state == 1)            //take in direction
+                {
+                    direction = newByte;
+                    state = 2;
+                }
+                else if (state == 2)            //take in encoder count
+                {
+                    encoder_count = newByte;
+                    state = 0;
+                }
+                bytesToRead = serialPort1.BytesToRead;
             }
+            timer1.Enabled = true;
+            
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -47,7 +73,7 @@ namespace Lab3_Encoder
             else
             {
                 serialPort1.PortName = comboBoxCOMPorts.Text;
-                serialPort1.Open();
+                //serialPort1.Open();
                 button1.Text = "Disconnect";
             }
         }
@@ -89,41 +115,9 @@ namespace Lab3_Encoder
             serialPort1.Write(buffer, 0, 5);
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-            byte[] buffer = new byte[5];
-            byte overload = 0;
-            byte upper = 0;
-            byte lower = 0;
-            byte mode = 3;
-
-            buffer[0] = 255;
-            buffer[1] = (byte)mode;
-            buffer[2] = upper;
-            buffer[3] = lower;
-            buffer[4] = overload;
-            serialPort1.Write(buffer, 0, 5);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            byte[] buffer = new byte[5];
-            byte overload = 0;
-            byte upper = 0;
-            byte lower = 0;
-            byte mode = 4;
-
-            buffer[0] = 255;
-            buffer[1] = (byte)mode;
-            buffer[2] = upper;
-            buffer[3] = lower;
-            buffer[4] = overload;
-            serialPort1.Write(buffer, 0, 5);
-        }
-
         private void Encoder_Load(object sender, EventArgs e)
         {
+            timer1.Enabled = true;
             comboBoxCOMPorts.Items.Clear();
             comboBoxCOMPorts.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
             if (comboBoxCOMPorts.Items.Count == 0)
@@ -132,7 +126,6 @@ namespace Lab3_Encoder
                 comboBoxCOMPorts.SelectedIndex = 0;
             var objChart = chartVelocity.ChartAreas[0];
             objChart.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            //month 1-12
             objChart.AxisX.Minimum = 0;
             objChart.AxisX.Maximum = 10;
             //temperature
@@ -149,20 +142,36 @@ namespace Lab3_Encoder
             chartVelocity.Series[v].Legend = "Legend1";
             chartVelocity.Series[v].ChartArea = "ChartArea1";
             chartVelocity.Series[v].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            chartVelocity.Series.Add(p);
+            chartVelocity.Series[p].Color = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+            chartVelocity.Series[p].Legend = "Legend1";
+            chartVelocity.Series[p].ChartArea = "ChartArea1";
+            chartVelocity.Series[p].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            distance = (double)encoder_count / ratio;
+            velocityRPM = ((encoder_count/(1/frequency))/counts_per_rev); //encoder_count = counts/period, divide by counts/rev
+            velocityHz = velocityRPM * 60; //Hz = cycles/s... 1 cycle = 1 rev
+            if (direction == 2) distance = distance * -1;
+            position = distance + old_distance;
+            textBoxPosition.Text = position.ToString();
+            textBoxVelocityRPM.Text = velocityRPM.ToString();
+            textBoxVelocityHz.Text = velocityHz.ToString();
+            old_distance = distance;
+
             var objChart = chartVelocity.ChartAreas[0];
-            var vel = Convert.ToDouble(textBoxVelocityRPM);
+            //var vel = Convert.ToDouble(textBoxVelocityRPM);
             time = time + 0.1;
             if(time > 10)
             {
-                objChart.AxisX.Minimum = time-10;
-                objChart.AxisX.Maximum = time;
+                objChart.AxisX.Minimum = (int)time-9;
+                objChart.AxisX.Maximum = (int)time+1;
             }
-            //Add data every 0.1s?
-            chartVelocity.Series[v].Points.AddXY(time, vel);
+            //Add data every 0.1s
+            chartVelocity.Series[v].Points.AddXY(time, velocityRPM);
+            chartVelocity.Series[p].Points.AddXY(time, position);
         }
     }
 }
