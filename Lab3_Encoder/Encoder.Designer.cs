@@ -57,7 +57,7 @@ namespace Lab3_Encoder
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 159);
+            this.label3.Location = new System.Drawing.Point(136, 159);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 25);
             this.label3.TabIndex = 67;
@@ -65,7 +65,7 @@ namespace Lab3_Encoder
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(110, 99);
+            this.label2.Location = new System.Drawing.Point(234, 99);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 25);
             this.label2.TabIndex = 66;
@@ -73,7 +73,7 @@ namespace Lab3_Encoder
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(332, 44);
+            this.label11.Location = new System.Drawing.Point(456, 44);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(0, 25);
             this.label11.TabIndex = 65;
@@ -81,14 +81,14 @@ namespace Lab3_Encoder
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(260, 44);
+            this.label12.Location = new System.Drawing.Point(384, 44);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(0, 25);
             this.label12.TabIndex = 64;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(289, 7);
+            this.button1.Location = new System.Drawing.Point(413, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(191, 41);
             this.button1.TabIndex = 63;
@@ -99,7 +99,7 @@ namespace Lab3_Encoder
             // comboBoxCOMPorts
             // 
             this.comboBoxCOMPorts.FormattingEnabled = true;
-            this.comboBoxCOMPorts.Location = new System.Drawing.Point(26, 12);
+            this.comboBoxCOMPorts.Location = new System.Drawing.Point(150, 12);
             this.comboBoxCOMPorts.Name = "comboBoxCOMPorts";
             this.comboBoxCOMPorts.Size = new System.Drawing.Size(257, 33);
             this.comboBoxCOMPorts.TabIndex = 62;
@@ -107,7 +107,7 @@ namespace Lab3_Encoder
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 61);
+            this.label1.Location = new System.Drawing.Point(130, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 25);
             this.label1.TabIndex = 61;
@@ -115,7 +115,7 @@ namespace Lab3_Encoder
             // 
             // trackBarSpeed
             // 
-            this.trackBarSpeed.Location = new System.Drawing.Point(6, 99);
+            this.trackBarSpeed.Location = new System.Drawing.Point(130, 99);
             this.trackBarSpeed.Maximum = 120000;
             this.trackBarSpeed.Name = "trackBarSpeed";
             this.trackBarSpeed.Size = new System.Drawing.Size(495, 90);
@@ -129,14 +129,14 @@ namespace Lab3_Encoder
             // 
             // textBoxPosition
             // 
-            this.textBoxPosition.Location = new System.Drawing.Point(211, 162);
+            this.textBoxPosition.Location = new System.Drawing.Point(840, 7);
             this.textBoxPosition.Name = "textBoxPosition";
             this.textBoxPosition.Size = new System.Drawing.Size(135, 31);
             this.textBoxPosition.TabIndex = 68;
             // 
             // textBoxVelocityRPM
             // 
-            this.textBoxVelocityRPM.Location = new System.Drawing.Point(211, 204);
+            this.textBoxVelocityRPM.Location = new System.Drawing.Point(840, 49);
             this.textBoxVelocityRPM.Name = "textBoxVelocityRPM";
             this.textBoxVelocityRPM.Size = new System.Drawing.Size(135, 31);
             this.textBoxVelocityRPM.TabIndex = 69;
@@ -144,7 +144,7 @@ namespace Lab3_Encoder
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 165);
+            this.label4.Location = new System.Drawing.Point(647, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(143, 25);
             this.label4.TabIndex = 70;
@@ -153,7 +153,7 @@ namespace Lab3_Encoder
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 207);
+            this.label5.Location = new System.Drawing.Point(647, 52);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(155, 25);
             this.label5.TabIndex = 71;
@@ -162,7 +162,7 @@ namespace Lab3_Encoder
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 252);
+            this.label6.Location = new System.Drawing.Point(651, 97);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(134, 25);
             this.label6.TabIndex = 72;
@@ -170,7 +170,7 @@ namespace Lab3_Encoder
             // 
             // textBoxVelocityHz
             // 
-            this.textBoxVelocityHz.Location = new System.Drawing.Point(211, 249);
+            this.textBoxVelocityHz.Location = new System.Drawing.Point(840, 94);
             this.textBoxVelocityHz.Name = "textBoxVelocityHz";
             this.textBoxVelocityHz.Size = new System.Drawing.Size(135, 31);
             this.textBoxVelocityHz.TabIndex = 73;
@@ -181,25 +181,26 @@ namespace Lab3_Encoder
             this.chartVelocity.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartVelocity.Legends.Add(legend1);
-            this.chartVelocity.Location = new System.Drawing.Point(11, 298);
+            this.chartVelocity.Location = new System.Drawing.Point(12, 174);
             this.chartVelocity.Name = "chartVelocity";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartVelocity.Series.Add(series1);
-            this.chartVelocity.Size = new System.Drawing.Size(909, 594);
+            this.chartVelocity.Size = new System.Drawing.Size(1150, 678);
             this.chartVelocity.TabIndex = 74;
             this.chartVelocity.Text = "chart1";
             // 
             // timer1
             // 
+            this.timer1.Interval = 250;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Encoder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 904);
+            this.ClientSize = new System.Drawing.Size(1174, 1429);
             this.Controls.Add(this.chartVelocity);
             this.Controls.Add(this.textBoxVelocityHz);
             this.Controls.Add(this.label6);

@@ -49,6 +49,7 @@ namespace Lab3
             this.trackBarSpeed.Name = "trackBarSpeed";
             this.trackBarSpeed.Size = new System.Drawing.Size(495, 90);
             this.trackBarSpeed.TabIndex = 4;
+            this.trackBarSpeed.Value = 60000;
             this.trackBarSpeed.Scroll += new System.EventHandler(this.trackBarSpeed_Scroll);
             // 
             // label1
