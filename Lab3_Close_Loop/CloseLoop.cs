@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections.Concurrent;
 
-namespace Lab3_Encoder
+namespace Lab3_Close_Loop
 {
-    public partial class Encoder : Form
+    public partial class CloseLoop : Form
     {
         //INPUTS
         long i = 0;
         double counts_per_rev = 980;
-        double circumference = Math.PI* 0.004;
+        double circumference = Math.PI * 0.004;
         double frequency = 27;
 
         //INTERMEDIATE PARAMETERS
@@ -36,11 +36,11 @@ namespace Lab3_Encoder
         double old_distance = 0;
         int mode;
         double time = 0;
-        
+
         string v = "Velocity";
         string p = "Position";
 
-        public Encoder()
+        public CloseLoop()
         {
             InitializeComponent();
         }
@@ -48,7 +48,7 @@ namespace Lab3_Encoder
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             bytesToRead = serialPort1.BytesToRead;
-            while(bytesToRead != 0)
+            while (bytesToRead != 0)
             {
                 newByte = serialPort1.ReadByte();
                 dataQueue.Enqueue(newByte);
@@ -127,12 +127,12 @@ namespace Lab3_Encoder
             Random random = new Random();
             //initial chart addition
             chartVelocity.Series.Add(v);
-            chartVelocity.Series[v].Color = Color.FromArgb(0,255,0);
+            chartVelocity.Series[v].Color = Color.FromArgb(0, 255, 0);
             chartVelocity.Series[v].Legend = "Legend1";
             chartVelocity.Series[v].ChartArea = "ChartArea1";
             chartVelocity.Series[v].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             chartVelocity.Series.Add(p);
-            chartVelocity.Series[p].Color = Color.FromArgb(255,0,0);
+            chartVelocity.Series[p].Color = Color.FromArgb(255, 0, 0);
             chartVelocity.Series[p].Legend = "Legend1";
             chartVelocity.Series[p].ChartArea = "ChartArea1";
             chartVelocity.Series[p].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -161,7 +161,7 @@ namespace Lab3_Encoder
             }
             distance = (double)encoder_count * circumference / counts_per_rev;
             //double counts_per_min = (double)encoder_count * 60 / 0.25;
-            double counts_per_min = 4*(double)encoder_count * 60 / ((1/frequency)*packages);
+            double counts_per_min = 4 * (double)encoder_count * 60 / ((1 / frequency) * packages);
             velocityRPM = (counts_per_min / counts_per_rev); //encoder_count = counts/period, divide by counts/rev
             velocityHz = velocityRPM / 60; //Hz = cycles/s... 1 cycle = 1 rev
             if (direction == 2) distance = distance * -1;
@@ -179,13 +179,13 @@ namespace Lab3_Encoder
                 objChart.AxisX.Minimum = (int)time - 9;
                 objChart.AxisX.Maximum = (int)time + 1;
             }
-            if ((max_y - max_y*0.1) < velocityRPM)
+            if ((max_y - max_y * 0.1) < velocityRPM)
             {
                 max_y = velocityRPM + velocityRPM * 0.5;
-                objChart.AxisY.Minimum = (int)max_y*-1;
+                objChart.AxisY.Minimum = (int)max_y * -1;
                 objChart.AxisY.Maximum = (int)max_y;
             }
-            if (((max_y2 - max_y2 * 0.1) < position) & (position>0.01))
+            if (((max_y2 - max_y2 * 0.1) < position) & (position > 0.01))
             {
                 max_y2 = position + position * 0.5;
                 objChart.AxisY2.Minimum = 0;

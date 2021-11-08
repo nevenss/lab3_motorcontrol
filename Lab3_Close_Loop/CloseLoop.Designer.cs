@@ -1,7 +1,7 @@
 ﻿
-namespace Lab3_Encoder
+namespace Lab3_Close_Loop
 {
-    partial class Encoder
+    partial class CloseLoop
     {
         /// <summary>
         /// Required designer variable.

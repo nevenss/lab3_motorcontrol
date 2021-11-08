@@ -1,0 +1,5 @@
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Close_Loop\obj\Debug\Lab3_Close_Loop.csproj.AssemblyReference.cache
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Close_Loop\obj\Debug\Lab3_Close_Loop.CloseLoop.resources
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Close_Loop\obj\Debug\Lab3_Close_Loop.Properties.Resources.resources
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Close_Loop\obj\Debug\Lab3_Close_Loop.csproj.GenerateResource.cache
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Close_Loop\obj\Debug\Lab3_Close_Loop.csproj.CoreCompileInputs.cache

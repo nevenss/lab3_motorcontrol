@@ -1,0 +1,10 @@
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Encoder\bin\Debug\Lab3_Encoder.exe.config
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Encoder\bin\Debug\Lab3_Encoder.exe
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Encoder\bin\Debug\Lab3_Encoder.pdb
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Encoder\obj\Debug\Lab3_Encoder.csproj.AssemblyReference.cache
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Encoder\obj\Debug\Lab3_Encoder.Encoder.resources
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Encoder\obj\Debug\Lab3_Encoder.Properties.Resources.resources
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Encoder\obj\Debug\Lab3_Encoder.csproj.GenerateResource.cache
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Encoder\obj\Debug\Lab3_Encoder.csproj.CoreCompileInputs.cache
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Encoder\obj\Debug\Lab3_Encoder.exe
+C:\Users\Italia Bakery\Desktop\MECH 423\lab3_motorcontrol-main\lab3_motorcontrol-main\Lab3_Encoder\obj\Debug\Lab3_Encoder.pdb
